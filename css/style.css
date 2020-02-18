@@ -33,6 +33,9 @@ header {
 }
 
 .navigation {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: flex-end;
     flex: 2;
     margin-left: auto;
     text-align: right;
@@ -60,6 +63,11 @@ header {
     transform: rotate(45deg) translate(0, -5px);
 }
 
+.navigation__item {
+    position: relative;
+    padding: 10px;
+}
+
 .navigation__item:nth-child(n + 1) {
     padding-left: 20px;
 }
@@ -67,11 +75,67 @@ header {
 .navigation__item button {
     background-color: rgb(180, 208, 231);
     border: none;
+    box-sizing: border-box;
 }
 
 .navigation__item button:hover {
     text-decoration: underline;
     cursor: pointer;
+}
+
+.navigation__dropbox {
+    position: absolute;
+    left: 0;
+    top: 20px;
+    display: none;
+    background: #fff;
+    border: 1px solid #b8b8b8;
+    color: #637381;
+    list-style-type: none;
+    padding: 20px 40px 10px 10px;
+    text-align: left;
+}
+
+.navigation__dropbox li {
+    margin: 15px;
+}
+
+.navigation__dropbox a {
+    text-decoration: none;
+    display: inline-block;
+    width: 100%;
+}
+
+.navigation__dropbox a:visited {
+    color: #637381;
+}
+
+.navigation__dropbox a:hover {
+    text-decoration: underline;
+}
+
+.navigation__dropbox::before {
+    position: absolute;
+    top: -10px;
+    left: calc(50% - 5px);
+    content: "";
+    border-bottom: 10px solid #b8b8b8;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+}
+
+.navigation__dropbox::after {
+    position: absolute;
+    top: -8px;
+    left: calc(50% - 4px);
+    content: "";
+    border-bottom: 9px solid #fff;
+    border-left: 9px solid transparent;
+    border-right: 9px solid transparent;
+}
+
+.navigation__item:hover .navigation__dropbox {
+    display: inline;
 }
 
 .button-try {
