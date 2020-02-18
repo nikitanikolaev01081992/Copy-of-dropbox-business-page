@@ -4,6 +4,7 @@ body {
     font-family: SharpGrotesk, "Open Sans", sans-serif;
     font-size: 16px;
     font-weight: 400;
+    height: 2000px;
 }
 
 header {
@@ -12,6 +13,18 @@ header {
     position: fixed;
     width: 100%;
     padding: 20px;
+}
+
+header a {
+    text-decoration: none;
+}
+
+header a:visited {
+    color: black;
+}
+
+header a:hover {
+    text-decoration: underline;
 }
 
 .logo {
@@ -40,18 +53,6 @@ header {
     margin-left: auto;
     text-align: right;
     margin-right: 20px;
-}
-
-.navigation__link {
-    text-decoration: none;
-}
-
-.navigation__link:visited {
-    color: black;
-}
-
-.navigation__link:hover {
-    text-decoration: underline;
 }
 
 .arrow {
@@ -101,17 +102,12 @@ header {
 }
 
 .navigation__dropbox a {
-    text-decoration: none;
     display: inline-block;
     width: 100%;
 }
 
 .navigation__dropbox a:visited {
     color: #637381;
-}
-
-.navigation__dropbox a:hover {
-    text-decoration: underline;
 }
 
 .navigation__dropbox::before {
@@ -142,5 +138,13 @@ header {
     flex: 0.5;
     margin-right: 2%;
     background-color: rgb(255, 255, 255);
-    padding: 5px 10px;
+    padding: 10px 0px;
+    font-size: 13px;
+    line-height: 20px;
+    text-align: center;
+}
+
+.button-try:hover {
+    text-decoration: none;
+    background-color: #f5f5f5;
 }
