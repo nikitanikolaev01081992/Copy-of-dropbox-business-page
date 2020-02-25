@@ -1,16 +1,20 @@
 body {
     min-width: 800px;
-    background-color: rgb(180, 208, 231);
     font-family: SharpGrotesk, "Open Sans", sans-serif;
     font-size: 16px;
     font-weight: 400;
     height: 2000px;
 }
 
+.main_color {
+    background-color: rgb(180, 208, 231);
+}
+
 header {
     display: flex;
     align-items: center;
     position: fixed;
+    top: 0;
     width: 100%;
     padding: 20px;
 }
@@ -147,4 +151,235 @@ header a:hover {
 .button-try:hover {
     text-decoration: none;
     background-color: #f5f5f5;
+}
+
+.section_intro {
+    margin-top: 0;
+    margin-left: 300px;
+    margin-right: 250px;
+}
+
+.section_intro h1 {
+    font-size: 95px;
+    line-height: 108px;
+    font-family: "SharpGroteskCondensed", "Open Sans", sans-serif;
+    letter-spacing: -1px;
+    padding-top: 150px;
+}
+
+.section {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.section__leftside {
+    flex-basis: 22%;
+    max-width: 22%;
+}
+
+.section__leftside p {
+    margin-top: 0;
+    font-family: SharpGrotesk, Open Sans, sans-serif;
+    font-size: 16px;
+    line-height: 26px;
+    margin-bottom: 40px;
+}
+
+.section__leftside > a {
+    font-size: 16px;
+    line-height: 26px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    background-color: #0061ff;
+    color: #fff;
+    text-decoration: none;
+    padding: 10px 20px;
+}
+
+.section__leftside > a:hover {
+    background-color: #3b85ff;
+}
+
+.section__leftside ul {
+    font-family: AtlasGrotesk, Open Sans, sans-serif;
+    font-size: 14px;
+    line-height: 21px;
+    list-style-type: none;
+    margin-top: 15px;
+    padding: 0;
+}
+
+.section__leftside li {
+    margin-bottom: 30px;
+}
+
+.section__leftside li > a:visited {
+    color: black;
+}
+
+.section__rightside {
+    flex-basis: 73%;
+    max-width: 73%;
+}
+
+.section__leftside button {
+    margin-top: 20px;
+    border: none;
+    background-color: transparent;
+    background-image: url(../images/down_arrow.svg);
+    background-repeat: no-repeat;
+    width: 50px;
+    height: 100px;
+}
+
+.wrapper {
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    margin-top: -90px;
+}
+
+.wrapper h1 {
+    font-family: SharpGroteskWide, Open Sans, sans-serif;
+    font-weight: 700;
+    font-size: 40px;
+    line-height: 46px;
+}
+
+.section-plans {
+    flex-basis: 60vw;
+    max-width: 60vw;
+}
+
+.section-plans h1 {
+    padding-top: 180px;
+}
+
+.section-plans__inputs {
+    display: flex;
+    justify-content: left;
+    align-items: start;
+}
+
+.inputs__item {
+    padding: 10px;
+}
+
+.plans {
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
+}
+
+.plans__item {
+    flex: 0 0 23%;
+    padding: 30px;
+    border: 1px solid #e0e0e0;
+    font-family: SharpGrotesk, Open Sans, sans-serif;
+    font-size: 16px;
+    line-height: 26px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.plans__item::before {
+    content: "";
+    position: absolute;
+    top: -1px;
+    left: -1px;
+    width: calc(100% + 2px);
+    height: 10px;
+    background-color: black;
+}
+
+.item__price {
+    position: relative;
+}
+
+.item__price,
+.item__req,
+.item__link {
+    flex: 0 0 30%;
+}
+
+.item__price h2 {
+    font-weight: 500;
+    letter-spacing: 0px;
+    font-size: 20px;
+    margin: 0;
+    margin-bottom: 10px;
+}
+
+.item__price p {
+    margin: 0;
+    text-align: left;
+    padding-right: 10px;
+}
+
+.item__price p:first-of-type {
+    font-size: 40px;
+    line-height: 46px;
+}
+
+.item__price p:nth-of-type(2) {
+    color: #637381;
+}
+
+.item__price::after {
+    content: "";
+    width: 50px;
+    border-bottom: 1px black solid;
+    position: absolute;
+    bottom: -20px;
+}
+
+.item__req > ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    margin-top: 60px;
+    margin-left: 30px;
+    padding-right: 45px;
+}
+
+.item__req li {
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.item__req li::before {
+    content: "";
+    position: absolute;
+    top: 5px;
+    left: -30px;
+    width: 20px;
+    height: 20px;
+    background-repeat: no-repeat;
+}
+
+.folder_icon::before {
+    background-image: url("https://cfl.dropboxstatic.com/static/images/business/bermuda/icons/folder.svg");
+}
+
+.sharing_icon::before {
+    background-image: url("https://cfl.dropboxstatic.com/static/images/business/bermuda/icons/sharing.svg");
+}
+
+.team_icon::before {
+    background-image: url("https://cfl.dropboxstatic.com/static/images/business/bermuda/icons/team.svg");
+}
+
+.lock_icon::before {
+    background-image: url("https://cfl.dropboxstatic.com/static/images/business/bermuda/icons/black-lock.svg");
+}
+
+.star_icon::before {
+    background-image: url("https://cfl.dropboxstatic.com/static/images/business/bermuda/icons/black-star.svg");
+}
+
+.chat_icon::before {
+    background-image: url("https://cfl.dropboxstatic.com/static/images/business/bermuda/icons/chat-bubble.svg");
 }
