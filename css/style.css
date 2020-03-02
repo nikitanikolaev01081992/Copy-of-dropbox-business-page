@@ -10,8 +10,6 @@ body {
     background-color: rgb(180, 208, 231);
 }
 
-
-
 header {
     display: flex;
     align-items: center;
@@ -237,31 +235,34 @@ header a:hover {
 
 .wrapper {
     background-color: white;
+    max-width: 1100px;
+    margin: 0 auto;
     display: flex;
-    justify-content: center;
-    margin-top: -90px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
 }
 
 .wrapper h1 {
     font-family: SharpGroteskWide, Open Sans, sans-serif;
     font-weight: 700;
-    font-size: 40px;
+    font-size: 50px;
     line-height: 46px;
 }
 
 .section-plans {
-    /* flex-basis: 65vw; */
-    /* max-width: 60vw; */
-    /* flex: 0 1 60vw; */
-    padding: 0;
     /* display: flex; */
-    width: 83%;
-    max-width: 1080px;
-    margin: 0 auto;
+    /* flex-direction: column; */
+    /* justify-content: center; */
+    padding: 0;
+    /* width: 83%; */
+    /* max-width: 1080px; */
+    /* margin: 0 auto; */
 }
 
 .section-plans h1 {
-    padding-top: 180px;
+    padding-top: 170px;
+    margin-top: 92px;
 }
 
 .section-plans__inputs {
@@ -300,12 +301,6 @@ header a:hover {
     /* box-sizing: border-box; */
     /* justify-content: flex-start; */
 }
-
-
-.plans__item:nth-of-type(1), .plans__item:nth-of-type(2) {
-    /* margin-right: 70px; */
-}
-
 
 .plans__item::before {
     content: "";
@@ -377,8 +372,6 @@ header a:hover {
     padding-right: 45px;
 }
 
-
-
 .item_bottom li {
     margin-bottom: 20px;
     position: relative;
@@ -418,7 +411,6 @@ header a:hover {
     background-image: url("https://cfl.dropboxstatic.com/static/images/business/bermuda/icons/chat-bubble.svg");
 }
 
-
 .item_bottom > a {
     flex: 1 1;
     font-size: 16px;
@@ -432,12 +424,42 @@ header a:hover {
     text-align: center;
 }
 
-
 .item_bottom > a:hover {
     box-shadow: 0 0 0 2px #0061ff;
 }
 
-
 .item_bottom > p {
     flex: 0 0;
+}
+
+.section-features {
+    margin-top: 100px;
+}
+
+.features {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+}
+
+.feautures__item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 0 1 30%;
+}
+
+.feautures__item h2 {
+    font-size: 25px;
+    line-height: 32px;
+}
+
+.feautures__item p {
+    font-family: SharpGrotesk, Open Sans, sans-serif;
+    font-size: 17px;
+    line-height: 26px;
+}
+
+.feautures__item img {
+    max-width: 495px;
 }
