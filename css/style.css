@@ -471,6 +471,13 @@ header a:hover {
     font-family: SharpGrotesk, Open Sans, sans-serif;
     font-size: 17px;
     line-height: 30px;
-    /* font-weight: 200; */
     letter-spacing: 0.5px;
+}
+
+.feature-item__text a:visited {
+    color: black;
+}
+
+.feature-item__text a:hover {
+    text-decoration: none;
 }
