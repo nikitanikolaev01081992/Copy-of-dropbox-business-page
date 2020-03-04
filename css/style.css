@@ -480,4 +480,17 @@ header a:hover {
 
 .feature-item__text a:hover {
     text-decoration: none;
+    flex-wrap: wrap;
+}
+
+
+
+
+.reviews {
+    display: grid;
+}
+
+.reviews img {
+    width: 150px;
+    height: 75px;
 }
