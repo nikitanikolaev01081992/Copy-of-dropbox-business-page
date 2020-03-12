@@ -1,10 +1,36 @@
+class ListOfFaqQuestions {
+    list = [];
+    
+    constructor(domObject, arrayOfQuestions) {
+        this.domObject = domObject;
+        this.list = Array.prototype.map.call(arrayOfQuestions, element => {
+            return new FaqQuestion(element, "faq-item__text_active");
+        });
+        
+        
+        this.domObject.addEventListener("click", (evt) => {
+            this.handleClick(evt);
+        })
+    }
+
+    handleClick(event) {
+        this.list.forEach(element => {
+            if (event.currentTarget !== element.button.domLink) {
+                element.text.removeClass();
+            }
+        });
+        
+    }
+}
+
+
 class FaqQuestion {
-    constructor(domQuestion, cssClass, domText, domButton) {
+    constructor(domQuestion, cssClass) {
         this.domLink = domQuestion;
         this.cssClass = cssClass;
-        this.text = new Text(domText, this);
-        this.button = new Button(domButton, this);
-        
+
+        this.text = new Text(document.querySelector(".faq-item").querySelector(".faq-item__text"), this);
+        this.button = new Button(document.querySelector(".faq-item").querySelector(".faq-item__button"), this);
     }
 
 }
@@ -37,12 +63,16 @@ class Text {
     handleEvent() {
         this.domLink.classList.toggle(this.container.cssClass);
     }
+
+    removeClass() {
+        this.domLink.classList.remove(this.container.cssClass);
+    }
 }
 
 
-let faq1 = new FaqQuestion(
-            document.querySelectorAll(".faq-item")[0],
-            "faq-item__text_active",
-            document.querySelectorAll(".faq-item__text")[0],
-            document.querySelectorAll(".faq-item__button")[0],
-);
+
+
+let listOfFaqQuestions = new ListOfFaqQuestions(document.querySelector(".faq-questions"), document.querySelectorAll(".faq-item"));
+
+
+
