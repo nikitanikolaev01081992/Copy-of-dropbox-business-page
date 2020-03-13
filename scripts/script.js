@@ -2,21 +2,22 @@ class ListOfFaqQuestions {
     list = [];
 
     constructor(domObject, arrayOfQuestions) {
-        this.domObject = domObject;
+        this.domLink = domObject;
         this.list = Array.prototype.map.call(arrayOfQuestions, element => {
             return new FaqQuestion(element, "faq-item__text_active");
         });
 
-        this.domObject.addEventListener("click", evt => {
+        this.domLink.addEventListener("click", evt => {
             this.handleClick(evt);
         });
     }
 
     handleClick(event) {
         this.list.forEach(element => {
-            if (event.target !== element.button.domLink) {
-                element.text.removeClass();
-            }
+            if (!event.target.parentElement.classList.contains("faq-item__button") && !event.target.classList.contains("faq-item__button")) return;
+
+            element.button.handleClick(event, element);
+            
         });
     }
 }
@@ -36,13 +37,17 @@ class Button {
         this.domLink = button;
         this.container = container;
 
-        this.domLink.addEventListener("click", evt => {
-            this.handleClick(evt, this.container);
-        });
+        // this.domLink.addEventListener("click", evt => {
+        //     this.handleClick(evt, this.container);
+        // });
     }
 
     handleClick(evt, container) {
-        container.text.handleEvent();
+        if (this.domLink.contains(evt.target)) {
+            container.text.handleEvent();
+        } else {
+            container.text.removeClass();
+        }
     }
 }
 
