@@ -17,7 +17,6 @@ class ListOfFaqQuestions {
             if (!event.target.parentElement.classList.contains("faq-item__button") && !event.target.classList.contains("faq-item__button")) return;
 
             element.button.handleClick(event, element);
-            
         });
     }
 }
@@ -44,9 +43,11 @@ class Button {
 
     handleClick(evt, container) {
         if (this.domLink.contains(evt.target)) {
+            this.domLink.querySelector(".faq-item__arrow").classList.toggle("faq-item__arrow_active");
             container.text.handleEvent();
         } else {
             container.text.removeClass();
+            this.domLink.querySelector(".faq-item__arrow").classList.remove("faq-item__arrow_active");
         }
     }
 }
