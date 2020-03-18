@@ -1,3 +1,6 @@
+
+
+//classes for section Faq questions
 class ListOfFaqQuestions {
     list = [];
 
@@ -68,3 +71,22 @@ class Text {
 }
 
 let listOfFaqQuestions = new ListOfFaqQuestions(document.querySelector(".faq-questions"), document.querySelectorAll(".faq-item"));
+
+
+
+
+
+//modal window for changing lang
+let btnOpenLangWindow = document.querySelector(".language-change__button");
+let btnCloseLangWindow = document.querySelector(".modal-lang-window__close-button");
+let langWindow = document.querySelector(".modal-lang-window");
+let classLangWindowActive = "modal-lang-window_active";
+
+
+let toogleLangWindow = (event) => {
+    langWindow.classList.toggle(classLangWindowActive);
+    document.body.classList.toggle("body_no-scroll");
+};
+
+btnOpenLangWindow.addEventListener("click", toogleLangWindow);
+btnCloseLangWindow.addEventListener("click", toogleLangWindow);

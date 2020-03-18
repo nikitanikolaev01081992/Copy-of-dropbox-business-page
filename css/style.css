@@ -719,6 +719,7 @@ footer {
 
 .section-links__item {
     flex: 1 1 20%;
+    padding-right: 40px;
 }
 
 .section-links__header {
@@ -736,7 +737,7 @@ footer {
 
 .section-links__list a {
     font-family: SharpGrotesk, Open Sans, sans-serif;
-    font-size: 14px;
+    font-size: 13px;
     line-height: 30px;
     color: white;
     text-decoration: none;
@@ -746,11 +747,31 @@ footer {
     text-decoration: underline;
 }
 
-.language-button {
+.language-change {
     padding-top: 100px;
 }
 
-.language-button::before {
+
+.language-change__container {
+    display: flex;
+    justify-content: start;
+    align-items: flex-end;
+    font-size: 13px;
+    font-weight: 600;
+    color: #767676;
+}
+
+
+
+.language-change__button:hover {
+    cursor: pointer;
+}
+
+.language-change__button span:hover {
+    text-decoration: underline;
+}
+
+.language-change::before {
     content: "";
     width: 100px;
     height: 1px;
@@ -758,3 +779,88 @@ footer {
     display: block;
     margin-bottom: 50px;
 }
+
+
+.language-change__icon {
+    background-image: url(https://cfl.dropboxstatic.com/static/images/sprites/web_sprites-vflT1pLW1.png);
+    background-repeat: no-repeat;
+}
+
+
+.language-change__globus {
+    background-position: left -9180px;
+    width: 20px;
+    height: 20px;
+    margin: 0 4px -1px 0;
+    
+}
+
+
+.language-change__arrow {
+    background-position: left -11806px;
+    width: 9px;
+    height: 5px;
+    margin: 0 0 2px -5px;
+}
+
+
+
+.modal-lang-window {
+    display: none;
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background-color: white;
+    width: 100%;
+    height: 100%;
+}
+
+.modal-lang-window_active {
+    display: flex;
+    justify-content: space-between;
+}
+
+
+
+.modal-lang-window .logo {
+    flex: 0 0;
+    width: 200px;
+}
+
+.modal-lang-window .logo__text {
+    color: black;
+}
+
+.modal-lang-window__text {
+    color: black;
+    justify-self: center;
+    align-self: center;
+}
+
+
+.modal-lang-window__list {
+    display: flex;
+    
+}
+
+.modal-lang-window__list ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+
+.modal-lang-window__close-button {
+    flex: 0 1;
+    width: 20px;
+    height: 20px;
+}
+
+
+
+.body_no-scroll {
+    overflow: hidden;
+}
+
