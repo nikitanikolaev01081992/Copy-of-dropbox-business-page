@@ -1,4 +1,19 @@
+//logic for header
+// let header = document.getElementsByTagName("header")[0];
+let bgElem = document.querySelector(".head-background");
+let clsBgElemActive = "head-background_active";
+let btnElem = document.querySelector(".button-try");
+let clsBtnBlue = "button-try_blue";
 
+document.addEventListener("scroll", () => {
+    if (window.pageYOffset > 40) {
+        bgElem.classList.add(clsBgElemActive);
+        btnElem.classList.add(clsBtnBlue);
+    } else {
+        bgElem.classList.remove(clsBgElemActive);
+        btnElem.classList.remove(clsBtnBlue);
+    }
+});
 
 //classes for section Faq questions
 class ListOfFaqQuestions {
@@ -72,18 +87,13 @@ class Text {
 
 let listOfFaqQuestions = new ListOfFaqQuestions(document.querySelector(".faq-questions"), document.querySelectorAll(".faq-item"));
 
-
-
-
-
 //modal window for changing lang
 let btnOpenLangWindow = document.querySelector(".language-change__button");
 let btnCloseLangWindow = document.querySelector(".modal-lang-window__close-button");
 let langWindow = document.querySelector(".modal-lang-window");
 let classLangWindowActive = "modal-lang-window_active";
 
-
-let toogleLangWindow = (event) => {
+let toogleLangWindow = event => {
     langWindow.classList.toggle(classLangWindowActive);
     document.body.classList.toggle("body_no-scroll");
 };

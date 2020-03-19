@@ -18,17 +18,40 @@ header {
     top: 0;
     width: 100%;
     padding: 20px;
+    z-index: 5;
 }
 
-header a {
+header * {
+    z-index: 3;
+}
+
+.head-background {
+    background-color: white;
+    position: absolute;
+    height: 0;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: 1;
+    transition: height 0.2s ease-in;
+}
+
+.head-background_active {
+    height: 100%;
+    width: 100%;
+    transition: height 0.2s ease-in;
+}
+
+a {
     text-decoration: none;
 }
 
-header a:visited {
+a:visited {
     color: black;
 }
 
-header a:hover {
+a:hover {
     text-decoration: underline;
 }
 
@@ -79,7 +102,7 @@ header a:hover {
 }
 
 .navigation__item button {
-    background-color: rgb(180, 208, 231);
+    background-color: transparent;
     border: none;
     box-sizing: border-box;
 }
@@ -147,11 +170,21 @@ header a:hover {
     font-size: 13px;
     line-height: 20px;
     text-align: center;
+    z-index: 2;
 }
 
 .button-try:hover {
     text-decoration: none;
     background-color: #f5f5f5;
+}
+
+.button-try.button-try_blue {
+    background-color: #0061ff;
+    color: #fff;
+}
+
+.button-try.button-try_blue:hover {
+    background-color: #3b85ff;
 }
 
 .section_intro {
@@ -766,6 +799,7 @@ footer {
 
 .language-change__button span:hover {
     text-decoration: underline;
+    color: #434344;
 }
 
 .language-change::before {
@@ -793,7 +827,7 @@ footer {
     background-position: left -11806px;
     width: 9px;
     height: 5px;
-    margin: 0 0 2px -5px;
+    margin: 0 0 2px 2px;
 }
 
 .modal-lang-window {
