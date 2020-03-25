@@ -10,46 +10,51 @@
 <body>
     <header class="main_color">
         <div class="head-background"></div>
-        <div class="logo">
-            <img src="images/Dropbox_icon.svg" width="30" alt="dropbox icon">
-            <span class="logo__text">Dropbox </span>
-            <span class="logo__text logo__text_blue">Business</span>
+        <div class="header__left-side">
+            <div class="logo">
+                <img src="images/Dropbox_icon.svg" width="30" alt="dropbox icon">
+                <span class="logo__text">Dropbox </span>
+                <span class="logo__text logo__text_blue">Business</span>
+            </div>
         </div>
-        <nav class="navigation">
-            <a href="" class="navigation__item navigation__link">Тарифы</a>
-            <a href="" class="navigation__item navigation__link">Сравнить тарифные планы</a>
-            <a href="" class="navigation__item navigation__link">Функции</a>
-            
-            <span class="navigation__item">
-                <button>
-                    <span class=" navigation__link">Подробнее</span>
-                    <span class="arrow"></span>
-                </button>
+        
+        <div class="header__right-side">
+            <nav class="navigation">
+                <a href="" class="navigation__item navigation__link">Тарифы</a>
+                <a href="" class="navigation__item navigation__link">Сравнить тарифные планы</a>
+                <a href="" class="navigation__item navigation__link">Функции</a>
+                
+                <span class="navigation__item">
+                    <button>
+                        <span class=" navigation__link">Подробнее</span>
+                        <span class="arrow"></span>
+                    </button>
 
-                <ul class="navigation__dropbox">
-                    <li><a href="">Безопасность</a></li>
-                    <li><a href="">Клиенты</a></li>
-                    <li><a href="">Интеграция приложений</a></li>
-                    <li><a href="">Решения</a></li>
-                    <li><a href="">Частые вопросы</a></li>
-                </ul>
+                    <ul class="navigation__dropbox">
+                        <li><a href="">Безопасность</a></li>
+                        <li><a href="">Клиенты</a></li>
+                        <li><a href="">Интеграция приложений</a></li>
+                        <li><a href="">Решения</a></li>
+                        <li><a href="">Частые вопросы</a></li>
+                    </ul>
 
-            </span>
+                </span>
 
-            <span class="navigation__item">
-                <button>
-                    <span class=" navigation__link">Обратитесь в отдел продаж</span>
-                    <span class="arrow"></span>
-                </button>
+                <span class="navigation__item">
+                    <button>
+                        <span class=" navigation__link">Обратитесь в отдел продаж</span>
+                        <span class="arrow"></span>
+                    </button>
 
-                <ul class="navigation__dropbox">
-                    <li><a href="">Чат</a></li>
-                    <li><a href="">Адрес электронной почты</a></li>
-                </ul>
+                    <ul class="navigation__dropbox">
+                        <li><a href="">Чат</a></li>
+                        <li><a href="">Адрес электронной почты</a></li>
+                    </ul>
 
-            </span>
-        </nav>
-        <a href="" class="button-try">Попробуйте бесплатно (30 дней)</a>
+                </span>
+            </nav>
+            <a href="" class="button-try">Попробуйте бесплатно (30 дней)</a>
+        </div>
     </header>
 
     <main>
@@ -64,7 +69,7 @@
                             <li>Кредитная карта не требуется</li>
                             <li>или <a href="">купите прямо сейчас</a></li>
                         </ul>
-                        <button></button>
+                        <button class="section__arrow-button"></button>
                     </div>
                     <div class="section__rightside">
                         <img src="images/business-hero-ru-vfl3gfjkS.png" alt="">
@@ -79,14 +84,12 @@
             <div class="section-plans">
                 <h1>Выберите подходящий для вас тарифный план Dropbox Business</h1>
                 
-                <div class="section-plans__inputs">
-                    <div class="inputs__item">
-                        <input type="radio" id="montly" name="type" value="montly" checked>
-                        <label for="montly">Ежемесячное выставление счетов</label>
+                <div class="inputs-with-radio">
+                    <div class="inputs-with-radio__item inputs-with-radio__item_checked" data-plan="monthly">
+                        <span>Ежемесячное выставление счетов</span>
                     </div>
-                    <div class="inputs__item">
-                        <input type="radio" id="annually" name="type" value="annually" che>
-                        <label for="annually">Ежегодное выставление счетов</label>
+                    <div class="inputs-with-radio__item" data-plan="yearly">
+                        <span>Ежегодное выставление счетов</span>
                     </div>
                 </div>
                 
@@ -94,12 +97,13 @@
 
                 <div class="plans">
                     <div class="plans__item">
-                        <div class="item_top">
+                        <div class="item__top">
                             <h2>Standard</h2>
-                            <p>$15</p>
-                            <p>на пользователя в месяц, начиная с 3 польз.</p>
+                            <p class="item__price-monthly item_big-text">$15</p>
+                            <p class="item__price-yearly item_big-text">$12,50</p>
+                            <p class="item__text-under-price">на пользователя в месяц, начиная с 3 польз.</p>
                         </div>
-                        <div class="item_bottom">
+                        <div class="item__bottom">
                             <ul>
                                 <li class="folder_icon">5 ТБ (5 000 ГБ) места для безопасного хранения файлов</li>
                                 <li class="sharing_icon">Простые инструменты для предоставления доступа и совместной работы</li>
@@ -112,12 +116,13 @@
 
                     <div class="plans__item">
                         <div class="plans__item_banner">Самое выгодное предложение</div>
-                        <div class="item_top">
+                        <div class="item__top">
                             <h2>Advanced</h2>
-                            <p>$25</p>
-                            <p>на пользователя в месяц, начиная с 3 польз.</p>
+                            <p class="item__price-monthly item_big-text">$25</p>
+                            <p class="item__price-yearly item_big-text">$20</p>
+                            <p class="item__text-under-price">на пользователя в месяц, начиная с 3 польз.</p>
                         </div>
-                        <div class="item_bottom">
+                        <div class="item__bottom">
                             <ul>
                                 <li class="team_icon">Столько места, сколько нужно вашим сотрудникам</li>
                                 <li class="lock_icon">Усовершенствованные функции управления и безопасности</li>
@@ -129,12 +134,12 @@
                     </div>
 
                     <div class="plans__item">
-                        <div class="item_top">
+                        <div class="item__top">
                             <h2>Enterprise</h2>
-                            <p>Контакты</p>
+                            <p class="item_big-text">Контакты</p>
                             <p></p>
                         </div>
-                        <div class="item_bottom">
+                        <div class="item__bottom">
                             <ul>
                                 <li class="star_icon">Настраиваемые решения</li>
                                 <li class="chat_icon">Персонализированная техническая поддержка, чтобы помочь администраторам управлять аккаунтом всей организации</li>
@@ -208,11 +213,12 @@
             <div class="reviews">
                 <div class="reviews__item item1"><img src="images/customers/designit-vfl6xuIHt.svg" alt=""></div>
                 <div class="reviews__item item2"><img src="images/customers/arizona_state_university-vfliy24jJ.svg" alt=""></div>
-                <div class="reviews__item item3 reviews__item_big">
-                    <img src="images/customers/designit-vfl6xuIHt.svg" alt="">
+                <div class="reviews__item_big item3 customer-review">
+                    <div class="customer-review__progress-bar"></div>
+                    <img class="customer-review__image" src="images/customers/designit-vfl6xuIHt.svg" alt="">
                     <blockquote>
-                        <p>«Часто, когда мы вводим в эксплуатацию какое-нибудь программное обеспечение, перво-наперво люди жалуются на связанные с ним трудности. Но когда мы постепенно внедряли Dropbox Business, в основном нам говорили: "А можно мне уже начать им пользоваться?"».</p>
-                        <p>Крис Берджис, вице-президент по IT</p>
+                        <p class="customer-review__text">«Наши сотрудники постоянно работают из разных стран, часовых поясов и офисов. В наше время для такого рода работы существует много технических решений, но не одно не функционирует так замечательно, как Dropbox и Dropbox Paper.»</p>
+                        <p class="customer-review__author">Мортен Томсен, глава международного отдела IT</p>
                     </blockquote>
                 </div>
                 <div class="reviews__item item4"><img src="images/customers/world_bicycle_relief-vfleERmxe.svg" alt=""></div>
