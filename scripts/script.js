@@ -3,7 +3,7 @@
 let bgElem = document.querySelector(".head-background");
 let clsBgElemActive = "head-background_active";
 let btnElem = document.querySelector(".button-try");
-let clsBtnBlue = "button-try_blue";
+let clsBtnBlue = "button_blue";
 
 document.addEventListener("scroll", () => {
     if (window.pageYOffset > 40) {

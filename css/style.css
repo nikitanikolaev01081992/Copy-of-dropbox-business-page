@@ -29,6 +29,20 @@ button:focus {
     outline: none;
 }
 
+.button_blue {
+    background-color: #0061ff !important;
+    color: #fff !important;
+    border: none !important;
+    text-decoration: none !important;
+    box-shadow: none !important;
+}
+
+.button_blue:hover {
+    background-color: #3b85ff !important;
+    border: none !important;
+    text-decoration: none !important;
+}
+
 .main_color {
     background-color: rgb(180, 208, 231);
 }
@@ -215,15 +229,6 @@ header * {
     background-color: #f5f5f5;
 }
 
-.button-try.button-try_blue {
-    background-color: #0061ff;
-    color: #fff;
-}
-
-.button-try.button-try_blue:hover {
-    background-color: #3b85ff;
-}
-
 .section_intro {
     margin-top: 0;
     margin-left: 300px;
@@ -383,9 +388,7 @@ header * {
     justify-content: space-between;
     align-items: stretch;
     flex-wrap: wrap;
-    /* width: 83%; */
-    /* max-width: 1080px; */
-    /* margin: 0 auto; */
+    margin-top: 70px;
 }
 
 .plans__item {
@@ -413,6 +416,29 @@ header * {
     width: calc(100% + 2px);
     height: 10px;
     background-color: black;
+}
+
+.plans__banner {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    position: absolute;
+    left: -1px;
+    top: -70px;
+    background-color: black;
+    color: white;
+    box-sizing: border-box;
+    width: calc(100% + 2px);
+    height: 70px;
+    font-family: SharpGrotesk, Open Sans, sans-serif;
+    font-size: 15px;
+    line-height: 26px;
+    padding: 10px 30px;
+}
+
+.plans__banner h3 {
+    margin: 0;
+    padding: 0;
 }
 
 .item__top {
@@ -526,7 +552,7 @@ header * {
     background-image: url("https://cfl.dropboxstatic.com/static/images/business/bermuda/icons/chat-bubble.svg");
 }
 
-.item__bottom > a {
+.item__button {
     flex: 1 1;
     font-size: 16px;
     line-height: 26px;
@@ -534,13 +560,13 @@ header * {
     padding-bottom: 8px;
     color: #0061ff;
     border: 1px solid #0061ff;
-    text-decoration: none;
     padding: 10px 20px;
     text-align: center;
 }
 
-.item__bottom > a:hover {
+.item__button:hover {
     box-shadow: 0 0 0 2px #0061ff;
+    text-decoration: none;
 }
 
 .item__bottom > p {
@@ -549,6 +575,15 @@ header * {
 
 .section-features {
     margin-top: 100px;
+}
+
+.item__link .item_blue-link {
+    color: #0061ff;
+    text-decoration: underline;
+}
+
+.item__link .item_blue-link:hover {
+    text-decoration: none;
 }
 
 .features {
