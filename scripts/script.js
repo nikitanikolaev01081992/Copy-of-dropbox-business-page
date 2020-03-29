@@ -156,8 +156,11 @@ class Component_Reviews {
         this.getData().then(data => {
             this.dataOfItems = data;
 
-            this.changeActiveItem();
-            setInterval(this.changeActiveItem.bind(this), 5000);
+            let recursiveTimeout = () => {
+                this.changeActiveItem();
+                setTimeout(recursiveTimeout, 5000);
+            };
+            recursiveTimeout();
         });
     }
 
@@ -192,8 +195,7 @@ class Customer_Review {
     imgElem = document.querySelector(".customer-review__image");
     textElem = document.querySelector(".customer-review__text");
     authorElem = document.querySelector(".customer-review__author");
-    progressBarElem = document.querySelector(".customer-review__progress-bar");
-    classWithAnimation = "customer-review__progress-bar_animated";
+    progressBarClass = "customer-review__progress-bar";
 
     changeData(newData) {
         this.restartProgressBar();
@@ -215,8 +217,14 @@ class Customer_Review {
     }
 
     restartProgressBar() {
-        this.progressBarElem.classList.remove(this.classWithAnimation); //remove animation, it should start with new changes
-        this.progressBarElem.classList.add(this.classWithAnimation);
+        let progressBar = this.domElem.querySelector("." + this.progressBarClass);
+        if (progressBar) {
+            this.domElem.removeChild(progressBar);
+        }
+
+        let newProgressBar = document.createElement("div");
+        newProgressBar.classList.add(this.progressBarClass);
+        this.domElem.append(newProgressBar);
     }
 }
 
