@@ -10,4 +10,5 @@ Project is in progress.
 Page works well only on large screens(1920x1080).
 
 The current goal:
+
 -to add media queries to make page looks good on middle and small screens
