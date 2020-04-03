@@ -19,41 +19,62 @@
         </div>
         
         <div class="header__right-side">
-            <nav class="navigation">
-                <a href="" class="navigation__item navigation__link">Тарифы</a>
-                <a href="" class="navigation__item navigation__link">Сравнить тарифные планы</a>
-                <a href="" class="navigation__item navigation__link">Функции</a>
+            <nav class="navigation-container">
+                    
+                <ul class="navigation">
+                    <li class="navigation__item">
+                        <a href="" class="navigation__link">Тарифы</a>
+                    </li>    
+                    
+                    <li class="navigation__item">
+                        <a href="" class="navigation__link">Сравнить тарифные планы</a>
+                    </li>
+
+                    <li class="navigation__item">
+                        <a href="" class=" navigation__link">Функции</a>
+                    </li>
+                    
+                    <li class="navigation__item navigation__item-with-button navigation__item_active">
+                        <button>
+                            <span class="navigation__link">Подробнее</span>
+                            <span class="arrow"></span>
+                        </button>
+
+                        <ul class="navigation__dropbox navigation__dropbox_active">
+                            <li><a href="">Безопасность</a></li>
+                            <li><a href="">Клиенты</a></li>
+                            <li><a href="">Интеграция приложений</a></li>
+                            <li><a href="">Решения</a></li>
+                            <li><a href="">Частые вопросы</a></li>
+                        </ul>
+
+                    </li>
+
+                    <li class="navigation__item navigation__item-with-button">
+                        <button>
+                            <span class=" navigation__link">Обратитесь в отдел продаж</span>
+                            <span class="arrow"></span>
+                        </button>
+
+                        <ul class="navigation__dropbox">
+                            <li><a href="">Чат</a></li>
+                            <li><a href="">Адрес электронной почты</a></li>
+                        </ul>
+
+                    </li>
+                </ul>
                 
-                <span class="navigation__item">
-                    <button>
-                        <span class=" navigation__link">Подробнее</span>
-                        <span class="arrow"></span>
-                    </button>
-
-                    <ul class="navigation__dropbox">
-                        <li><a href="">Безопасность</a></li>
-                        <li><a href="">Клиенты</a></li>
-                        <li><a href="">Интеграция приложений</a></li>
-                        <li><a href="">Решения</a></li>
-                        <li><a href="">Частые вопросы</a></li>
-                    </ul>
-
-                </span>
-
-                <span class="navigation__item">
-                    <button>
-                        <span class=" navigation__link">Обратитесь в отдел продаж</span>
-                        <span class="arrow"></span>
-                    </button>
-
-                    <ul class="navigation__dropbox">
-                        <li><a href="">Чат</a></li>
-                        <li><a href="">Адрес электронной почты</a></li>
-                    </ul>
-
-                </span>
             </nav>
-            <a href="" class="button-try">Попробуйте бесплатно (30 дней)</a>
+
+            <a href="" class="button-try">Попробуйте бесплатно (30&nbsp;дней)</a>
+
+            <button class="button-open-nav">
+                <div class="button-open-nav__line button-open-nav__line_1"></div>
+                <div class="button-open-nav__line button-open-nav__line_2"></div>
+                <div class="button-open-nav__line button-open-nav__line_3"></div>
+                <div class="button-open-nav__line button-open-nav__line_4"></div>
+            </button>
+            
         </div>
     </header>
 

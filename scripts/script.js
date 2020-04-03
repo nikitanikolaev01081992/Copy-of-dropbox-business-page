@@ -1,19 +1,85 @@
-//logic for header
-// let header = document.getElementsByTagName("header")[0];
-let bgElem = document.querySelector(".head-background");
-let clsBgElemActive = "head-background_active";
-let btnElem = document.querySelector(".button-try");
-let clsBtnBlue = "button_blue";
+//logic for button to open navigation on medium/small screens
+class Header {
+    domLink = document.querySelector("header");
+    openBtnCssClassInitial = "button-open-nav";
+    openBtnCssClassActive = "button-open-nav_active";
+    navContainerCssClassInitial = "navigation-container";
+    navContainerCssClassActive = "navigation-container_active";
+    bgElemClassInitial = "head-background";
+    bgElemClassActive = "head-background_active";
+    btnTryClassInitial = "button-try";
+    btnTryClassActive = "button_blue";
+    dropDownContainerClassInitial = "navigation__item-with-button";
+    dropDownContainerClassActive = "navigation__item-with-button_active";
+    dropDownElemClassActive = "navigation__dropbox";
+    dropDownElemClassInitial = "navigation__dropbox_active";
 
-document.addEventListener("scroll", () => {
-    if (window.pageYOffset > 40) {
-        bgElem.classList.add(clsBgElemActive);
-        btnElem.classList.add(clsBtnBlue);
-    } else {
-        bgElem.classList.remove(clsBgElemActive);
-        btnElem.classList.remove(clsBtnBlue);
+    constructor() {
+        const innerElemJSClass = class {
+            isActive = false;
+            constructor(cssClassInitial, cssClassActive) {
+                this.cssClassInitial = cssClassInitial;
+                this.cssClassActive = cssClassActive;
+                this.domLink = document.querySelector("." + this.cssClassInitial);
+            }
+
+            handleEvent() {
+                this.domLink.classList.toggle(this.cssClassActive);
+                if (this.domLink.classList.contains(this.cssClassActive)) {
+                    this.isActive = true;
+                } else {
+                    this.isActive = false;
+                }
+            }
+
+            changeElemStatus(status) {
+                if (status) {
+                    this.domLink.classList.add(this.cssClassActive);
+                    this.isActive = true;
+                } else {
+                    this.domLink.classList.remove(this.cssClassActive);
+                    this.isActive = false;
+                }
+            }
+        };
+        this.openBtn = new innerElemJSClass(this.openBtnCssClassInitial, this.openBtnCssClassActive);
+        this.navContainer = new innerElemJSClass(this.navContainerCssClassInitial, this.navContainerCssClassActive);
+
+        const innerBgElemJSClass = class extends innerElemJSClass {
+            handleScroll() {
+                if (window.pageYOffset > 40) {
+                    this.changeElemStatus(true);
+                } else {
+                    this.changeElemStatus(false);
+                }
+            }
+        };
+
+        this.bgElem = new innerBgElemJSClass(this.bgElemClassInitial, this.bgElemClassActive);
+        this.btnTry = new innerBgElemJSClass(this.btnTryClassInitial, this.btnTryClassActive);
+
+        //add event handlers
+        document.addEventListener("scroll", () => {
+            this.bgElem.handleScroll();
+            this.btnTry.handleScroll();
+        });
+
+        this.domLink.addEventListener("click", event => {
+            this.handleClick(event);
+        });
     }
-});
+
+    handleClick(event) {
+        if (!event.target.parentElement.classList.contains(this.openBtn.cssClassInitial) && event.target !== this.openBtn.domLink) return;
+        document.body.classList.toggle("body_no-scroll");
+        this.openBtn.handleEvent();
+        this.navContainer.handleEvent();
+        this.bgElem.changeElemStatus(this.openBtn.isActive);
+        this.btnTry.changeElemStatus(this.openBtn.isActive);
+    }
+}
+
+let navigationMenu = new Header();
 
 //logic for arrow button in section
 let arrowBtn = document.querySelector(".section__arrow-button");
