@@ -11,8 +11,8 @@ class Header {
     btnTryClassActive = "button_blue";
     dropDownContainerClassInitial = "navigation__item-with-button";
     dropDownContainerClassActive = "navigation__item-with-button_active";
-    dropDownElemClassActive = "navigation__dropbox";
-    dropDownElemClassInitial = "navigation__dropbox_active";
+    // dropDownElemClassInitial = "navigation__dropbox";
+    // dropDownElemClassActive = "navigation__dropbox_active";
 
     constructor() {
         const innerElemJSClass = class {
@@ -42,8 +42,6 @@ class Header {
                 }
             }
         };
-        this.openBtn = new innerElemJSClass(this.openBtnCssClassInitial, this.openBtnCssClassActive);
-        this.navContainer = new innerElemJSClass(this.navContainerCssClassInitial, this.navContainerCssClassActive);
 
         const innerBgElemJSClass = class extends innerElemJSClass {
             handleScroll() {
@@ -55,6 +53,24 @@ class Header {
             }
         };
 
+        const innerMultipleElemJSClass = class extends innerElemJSClass {
+            constructor(cssClassInitial, cssClassActive, index) {
+                super(cssClassInitial, cssClassActive);
+                this.domLink = document.querySelectorAll("." + this.cssClassInitial)[index];
+            }
+        };
+
+        this.openBtn = new innerElemJSClass(this.openBtnCssClassInitial, this.openBtnCssClassActive);
+        this.navContainer = new innerElemJSClass(this.navContainerCssClassInitial, this.navContainerCssClassActive);
+
+        const tempMap = Array.prototype.map;
+        this.dropDownContainers = tempMap.call(document.querySelectorAll("." + this.dropDownContainerClassInitial), (elem, index) => {
+            return new innerMultipleElemJSClass(this.dropDownContainerClassInitial, this.dropDownContainerClassActive, index);
+        });
+        // this.dropDownElems = tempMap.call(document.querySelectorAll("." + this.dropDownElemClassInitial), (elem, index) => {
+        //     return new innerMultipleElemJSClass(this.dropDownElemClassInitial, this.dropDownElemClassActive, index);
+        // });
+
         this.bgElem = new innerBgElemJSClass(this.bgElemClassInitial, this.bgElemClassActive);
         this.btnTry = new innerBgElemJSClass(this.btnTryClassInitial, this.btnTryClassActive);
 
@@ -64,18 +80,39 @@ class Header {
             this.btnTry.handleScroll();
         });
 
-        this.domLink.addEventListener("click", event => {
+        this.domLink.addEventListener("click", (event) => {
             this.handleClick(event);
         });
     }
 
     handleClick(event) {
-        if (!event.target.parentElement.classList.contains(this.openBtn.cssClassInitial) && event.target !== this.openBtn.domLink) return;
-        document.body.classList.toggle("body_no-scroll");
-        this.openBtn.handleEvent();
-        this.navContainer.handleEvent();
-        this.bgElem.changeElemStatus(this.openBtn.isActive);
-        this.btnTry.changeElemStatus(this.openBtn.isActive);
+        const targetOpenBn = event.target.closest("." + this.openBtnCssClassInitial);
+        const targetDropDown = event.target.closest("." + this.dropDownContainerClassInitial + " button");
+
+        if (targetOpenBn) {
+            document.body.classList.toggle("body_no-scroll");
+            this.openBtn.handleEvent();
+            this.navContainer.handleEvent();
+            this.bgElem.changeElemStatus(this.openBtn.isActive);
+            this.btnTry.changeElemStatus(this.openBtn.isActive);
+
+            if (!this.openBtn.isActive) {
+                this.dropDownContainers.forEach((elem) => {
+                    elem.changeElemStatus(false);
+                });
+                // this.dropDownElems.forEach((elem) => {
+                //     elem.changeElemStatus(false);
+                // });
+            }
+        } else if (targetDropDown) {
+            for (let i = 0; i < this.dropDownContainers.length; i++) {
+                if (this.dropDownContainers[i].domLink.contains(targetDropDown)) {
+                    this.dropDownContainers[i].handleEvent();
+                    // this.dropDownElems[i].handleEvent();
+                    break;
+                }
+            }
+        }
     }
 }
 
@@ -101,13 +138,13 @@ class PlanChanger {
     constructor() {
         this.handleEvent({ currentTarget: this.inputsWithRadio[0] });
 
-        this.inputsWithRadio.forEach(input => {
+        this.inputsWithRadio.forEach((input) => {
             input.addEventListener("click", this.handleEvent.bind(this));
         });
     }
 
     handleEvent(event) {
-        this.inputsWithRadio.forEach(elem => {
+        this.inputsWithRadio.forEach((elem) => {
             elem.classList.remove(this.classInputChecked);
         });
         event.currentTarget.classList.add(this.classInputChecked);
@@ -119,11 +156,11 @@ class PlanChanger {
         let newState = plan[0].toUpperCase() + plan.slice(1);
         let oldState = plan === "monthly" ? "Yearly" : "Monthly";
 
-        this["textPrice" + oldState].forEach(elem => {
+        this["textPrice" + oldState].forEach((elem) => {
             elem.classList.remove(this.classPriceActive);
         });
 
-        this["textPrice" + newState].forEach(elem => {
+        this["textPrice" + newState].forEach((elem) => {
             elem.classList.add(this.classPriceActive);
         });
     }
@@ -137,17 +174,17 @@ class ListOfFaqQuestions {
 
     constructor(domObject, arrayOfQuestions) {
         this.domLink = domObject;
-        this.list = Array.prototype.map.call(arrayOfQuestions, element => {
+        this.list = Array.prototype.map.call(arrayOfQuestions, (element) => {
             return new FaqQuestion(element, "faq-item__text_active");
         });
 
-        this.domLink.addEventListener("click", evt => {
+        this.domLink.addEventListener("click", (evt) => {
             this.handleClick(evt);
         });
     }
 
     handleClick(event) {
-        this.list.forEach(element => {
+        this.list.forEach((element) => {
             if (!event.target.parentElement.classList.contains("faq-item__button") && !event.target.classList.contains("faq-item__button")) return;
 
             element.button.handleClick(event, element);
@@ -219,7 +256,7 @@ class Component_Reviews {
         this.textItem = new Customer_Review();
 
         //get data from json
-        this.getData().then(data => {
+        this.getData().then((data) => {
             this.dataOfItems = data;
 
             let recursiveTimeout = () => {
@@ -302,7 +339,7 @@ let btnCloseLangWindow = document.querySelector(".modal-lang-window__close-butto
 let langWindow = document.querySelector(".modal-lang-window");
 let classLangWindowActive = "modal-lang-window_active";
 
-let toogleLangWindow = event => {
+let toogleLangWindow = (event) => {
     langWindow.classList.toggle(classLangWindowActive);
     document.body.classList.toggle("body_no-scroll");
 };

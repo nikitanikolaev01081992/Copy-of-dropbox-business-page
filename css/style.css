@@ -285,20 +285,20 @@ header {
         text-decoration: underline;
     }
 
-    .arrow {
-        top: calc(50% - 5px);
-        right: 70px;
-        width: 10px;
-        height: 10px;
-    }
-
-    .navigation__item-with-button button .arrow {
-        transform: rotate(225deg);
-        transition: transform 0.25s cubic-bezier(0.5, 0, 0, 1);
-    }
-
-    .navigation__item-with-button {
+    .navigation__item-with-button_active {
         background-color: #efefef;
+    }
+
+    .arrow {
+        top: calc(50% - 8px);
+        right: 70px;
+        width: 12px;
+        height: 12px;
+        transition: transform 0.3s cubic-bezier(0.5, 0, 0, 1);
+    }
+
+    .navigation__item-with-button_active .arrow {
+        transform: rotate(225deg);
     }
 
     .navigation__dropbox {
@@ -313,6 +313,12 @@ header {
         transition: height 0.3s;
         padding: 0;
         margin: 0;
+    }
+
+    .navigation__item-with-button_active .navigation__dropbox {
+        display: block;
+        height: 100%;
+        transition: height 0.3s;
     }
 
     .navigation__dropbox li {
@@ -333,12 +339,6 @@ header {
 
     .navigation__dropbox li a {
         padding: 20px 0 20px 25px;
-    }
-
-    .navigation__dropbox_active {
-        display: block;
-        height: 100%;
-        transition: height 0.3s;
     }
 } /* end of media for screens less than 1366px */
 
