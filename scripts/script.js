@@ -32,8 +32,8 @@ class Header {
                 }
             }
 
-            changeElemStatus(status) {
-                if (status) {
+            changeElemStatus(isActive) {
+                if (isActive) {
                     this.domLink.classList.add(this.cssClassActive);
                     this.isActive = true;
                 } else {
@@ -80,6 +80,21 @@ class Header {
             this.btnTry.handleScroll();
         });
 
+        window.addEventListener("resize", () => {
+            if (window.innerWidth > 1365) {
+                document.body.classList.remove("body_no-scroll");
+                this.openBtn.changeElemStatus(false);
+                this.navContainer.changeElemStatus(false);
+                this.bgElem.changeElemStatus(false);
+                this.btnTry.changeElemStatus(false);
+                this.dropDownContainers.forEach((elem) => {
+                    elem.changeElemStatus(false);
+                });
+
+                document.dispatchEvent(new Event("scroll"));
+            }
+        });
+
         this.domLink.addEventListener("click", (event) => {
             this.handleClick(event);
         });
@@ -105,13 +120,21 @@ class Header {
                 // });
             }
         } else if (targetDropDown) {
+            let target;
+
             for (let i = 0; i < this.dropDownContainers.length; i++) {
                 if (this.dropDownContainers[i].domLink.contains(targetDropDown)) {
-                    this.dropDownContainers[i].handleEvent();
-                    // this.dropDownElems[i].handleEvent();
+                    target = this.dropDownContainers[i];
+                    target.handleEvent();
                     break;
                 }
             }
+
+            this.dropDownContainers.forEach((elem) => {
+                if (elem !== target) {
+                    elem.changeElemStatus(false);
+                }
+            });
         }
     }
 }
