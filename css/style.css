@@ -2,8 +2,11 @@ html {
     scroll-behavior: smooth;
 }
 
+html * {
+    box-sizing: border-box;
+}
+
 body {
-    min-width: 800px;
     font-family: SharpGrotesk, "Open Sans", sans-serif;
     font-size: 16px;
     font-weight: 400;
@@ -53,6 +56,7 @@ button:focus {
 
 .main_color {
     background-color: rgb(180, 208, 231);
+    /* width: 100%; */
 }
 
 header {
@@ -60,7 +64,7 @@ header {
     justify-content: space-between;
     position: fixed;
     top: 0;
-    width: 100%;
+    width: 100vw;
     padding: 20px;
     z-index: 1;
 }
@@ -376,8 +380,9 @@ header {
     position: relative;
     box-sizing: border-box;
     padding: 12px;
-    margin: 0 30px 0 0;
+    /* margin: 0 30px 0 0; */
     cursor: pointer;
+    /* margin-right: 1153px; */
 }
 
 .button-open-nav:focus {
@@ -412,7 +417,12 @@ header {
 }
 
 .section_intro {
-    margin: 0 10%;
+    max-width: 1440px;
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
 .section_intro h1 {
@@ -421,7 +431,31 @@ header {
     font-family: "SharpGroteskCondensed", "Open Sans", sans-serif;
     letter-spacing: -1px;
     padding-top: 50px;
-    margin-bottom: 25px;
+    margin: 60px 4% 25px 4%;
+    width: 92%;
+}
+
+@media screen and (max-width: 1025px) {
+    .section_intro h1 {
+        font-size: 71px;
+        line-height: 80px;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .section_intro h1 {
+        font-size: 50px;
+        line-height: 60px;
+        margin-left: 10%;
+        margin-right: 10%;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .section_intro h1 {
+        font-size: 40px;
+        line-height: 50px;
+    }
 }
 
 .section {
@@ -430,11 +464,27 @@ header {
     align-items: flex-start;
     overflow: visible;
     height: 450px;
+    margin: 0 4%;
+}
+
+@media screen and (max-width: 800px) {
+    .section {
+        height: auto;
+        margin: 0 10%;
+        margin-bottom: 40px;
+    }
 }
 
 .section__leftside {
-    flex-basis: 22%;
-    max-width: 22%;
+    flex-basis: 25%;
+    max-width: 25%;
+}
+
+@media screen and (max-width: 800px) {
+    .section__leftside {
+        flex-basis: 90%;
+        max-width: 90%;
+    }
 }
 
 .section__leftside p {
@@ -447,6 +497,7 @@ header {
 
 .section__leftside > a {
     display: block;
+    min-width: 200px;
     font-size: 16px;
     line-height: 26px;
     padding-top: 8px;
@@ -456,6 +507,12 @@ header {
     text-decoration: none;
     padding: 10px 20px;
     text-align: center;
+}
+
+@media screen and (max-width: 800px) {
+    .section__leftside > a {
+        max-width: 300px;
+    }
 }
 
 .section__leftside > a:hover {
@@ -478,6 +535,24 @@ header {
 .section__rightside {
     flex-basis: 73%;
     max-width: 73%;
+    margin-left: 4%;
+}
+
+@media screen and (max-width: 1025px) {
+    .section__rightside {
+        margin-left: 10%;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .section__rightside {
+        display: none;
+    }
+}
+
+.section__rightside img {
+    width: 100%;
+    height: auto;
 }
 
 .section__arrow-button {
@@ -489,6 +564,12 @@ header {
     width: 40px;
     height: 40px;
     cursor: pointer;
+}
+
+@media screen and (max-width: 1025px) {
+    .section__arrow-button {
+        display: none;
+    }
 }
 
 .wrapper {
