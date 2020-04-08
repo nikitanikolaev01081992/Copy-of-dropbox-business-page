@@ -69,6 +69,12 @@ header {
     z-index: 1;
 }
 
+@media screen and (max-width: 800px) {
+    header {
+        padding-right: 5px;
+    }
+}
+
 .head-background {
     background-color: white;
     position: absolute;
@@ -119,6 +125,16 @@ header {
 .logo__text_blue {
     font-weight: 500;
     color: #0061ff;
+}
+
+@media screen and (max-width: 800px) {
+    .logo img {
+        width: 25px;
+    }
+
+    .logo__text {
+        font-size: 1.5em;
+    }
 }
 
 .navigation {
@@ -242,7 +258,7 @@ header {
     .navigation-container {
         display: none;
         position: absolute;
-        top: calc(100% + 1px);
+        top: calc(100%);
         left: 0;
         width: 100%;
         height: 100vh;
@@ -296,7 +312,7 @@ header {
 
     .arrow {
         top: calc(50% - 8px);
-        right: 70px;
+        right: 2.5%;
         width: 12px;
         height: 12px;
         transition: transform 0.3s cubic-bezier(0.5, 0, 0, 1);
@@ -348,6 +364,16 @@ header {
     }
 } /* end of media for screens less than 1366px */
 
+@media screen and (max-width: 800px) {
+    .navigation__item button {
+        padding-right: 5%;
+    }
+
+    .arrow {
+        right: 5%;
+    }
+}
+
 .button-try {
     background-color: rgb(255, 255, 255);
     padding: 5px 20px;
@@ -383,6 +409,25 @@ header {
     /* margin: 0 30px 0 0; */
     cursor: pointer;
     /* margin-right: 1153px; */
+}
+
+.button-open-nav__line {
+    transition: transform 0.25s, display 0.25s;
+}
+
+.button-open-nav_active .button-open-nav__line_1,
+.button-open-nav_active .button-open-nav__line_4 {
+    display: none;
+}
+
+.button-open-nav_active .button-open-nav__line_2 {
+    transform: rotate(45deg);
+    transition: transform 0.25s;
+}
+
+.button-open-nav_active .button-open-nav__line_3 {
+    transform: rotate(-45deg);
+    transition: transform 0.25s;
 }
 
 .button-open-nav:focus {
@@ -578,7 +623,6 @@ header {
     margin: 0 auto;
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
     justify-content: space-evenly;
 }
 
@@ -606,14 +650,24 @@ header {
 }
 
 .section-plans h1 {
-    padding-top: 170px;
-    margin-top: 92px;
+    padding-top: 100px;
+    margin-top: 72px;
+}
+
+@media screen and (max-width: 1035px) {
+    .section-plans h1 {
+        padding-top: 50px;
+        margin-top: 36px;
+        font-size: 25px;
+        line-height: 32px;
+    }
 }
 
 .inputs-with-radio {
     display: flex;
     justify-content: left;
     align-items: center;
+    flex-wrap: wrap;
 }
 
 .inputs-with-radio__item {
@@ -642,8 +696,14 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: stretch;
-    flex-wrap: wrap;
     margin-top: 70px;
+}
+
+@media screen and (max-width: 800px) {
+    .plans {
+        flex-direction: column;
+        margin-top: 70px;
+    }
 }
 
 .plans__item {
@@ -658,9 +718,20 @@ header {
     flex-direction: column;
     justify-content: space-between;
     align-items: stretch;
-    width: 23%;
+    width: 29%;
     /* box-sizing: border-box; */
     /* justify-content: flex-start; */
+}
+
+@media screen and (max-width: 800px) {
+    .plans__item {
+        width: 100%;
+        margin-bottom: 50px;
+    }
+
+    .plans__item:nth-child(2) {
+        order: -1;
+    }
 }
 
 .plans__item::before {
@@ -684,11 +755,17 @@ header {
     color: white;
     box-sizing: border-box;
     width: calc(100% + 2px);
-    height: 70px;
+    height: auto;
     font-family: SharpGrotesk, Open Sans, sans-serif;
     font-size: 15px;
     line-height: 26px;
     padding: 10px 30px;
+}
+
+@media screen and (max-width: 800px) {
+    .plans__banner {
+        top: -45px;
+    }
 }
 
 .plans__banner h3 {
@@ -737,6 +814,13 @@ header {
     line-height: 46px;
 }
 
+@media screen and (max-width: 1035px) {
+    .item_big-text {
+        font-size: 25px;
+        line-height: 32px;
+    }
+}
+
 .item__text-under-price {
     color: #637381;
 }
@@ -755,7 +839,7 @@ header {
     /* justify-content: stretch; */
     justify-content: space-between;
     position: relative;
-    /* flex: 0 0 80%; */
+    flex: 0 1 77%;
 }
 
 .item__bottom > ul {
@@ -808,7 +892,7 @@ header {
 }
 
 .item__button {
-    flex: 1 1;
+    /* flex: 1 1; */
     font-size: 16px;
     line-height: 26px;
     padding-top: 8px;
