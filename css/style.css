@@ -1394,14 +1394,21 @@ footer {
 
 .section-links {
     width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: stretch;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-gap: 40px;
 }
 
-.section-links__item {
-    flex: 1 1 20%;
-    padding-right: 40px;
+@media screen and (max-width: 1035px) {
+    .section-links {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .section-links {
+        grid-template-columns: repeat(2, 1fr);
+    }
 }
 
 .section-links__header {
@@ -1516,6 +1523,12 @@ footer {
     color: black;
 }
 
+@media screen and (max-width: 800px) {
+    .modal-lang-window .logo__text {
+        display: none;
+    }
+}
+
 .modal-lang-window__close-button {
     background-color: transparent;
     border: transparent;
@@ -1529,17 +1542,32 @@ footer {
     cursor: pointer;
 }
 
+.modal-lang-window__text {
+    padding: 0 40px;
+    height: 70%;
+    overflow: auto;
+    position: relative;
+}
+
 .modal-lang-window__text h2 {
     font-size: 25px;
     line-height: 1.8;
     font-family: SharpGroteskWide, Open Sans, sans-serif;
     font-weight: 500;
     color: black;
+    position: fixed;
+    top: 0;
 }
 
 .modal-lang-window__list {
     columns: 2;
     padding: 0;
+}
+
+@media screen and (max-width: 500px) {
+    .modal-lang-window__list {
+        columns: 1;
+    }
 }
 
 .modal-lang-window__list li {
